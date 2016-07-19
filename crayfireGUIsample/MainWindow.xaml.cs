@@ -24,9 +24,16 @@ namespace crayfireGUIsample
         private bool subMenuPanelShow =false;
         private string activeMenuItem = "";
 
+        // Initialize Log4Net 
+        //
+        // based on tutorial  https://csharp.today/log4net-tutorial-great-library-for-logging/
+
+        private static readonly log4net.ILog log4 =
+        log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public MainWindow()
         {
+            log4.Info("It Works!");
             InitializeComponent();
         }
 
