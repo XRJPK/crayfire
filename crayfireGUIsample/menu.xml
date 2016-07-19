@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <import>
+    <!-- First Level Menu Item - Start-->
+    <menuitem name ="crayfire.acp.configuration">
+      <type>icon</type>
+      <showorder>1</showorder>
+      <icon>fa-wrench</icon>
+      <permissions></permissions>
+    </menuitem>
+    <menuitem name ="crayfire.acp.user">
+      <type>icon</type>
+      <showorder>2</showorder>
+      <icon>fa-users</icon>
+      <permissions></permissions>
+    </menuitem>
+    <!-- First Level Menu Item - Stop-->
+    <!-- Second Level User Item - Start-->
+    <menuitem name ="crayfire.acp.user.title">
+      <type>header</type>
+      <parent>crayfire.acp.user</parent>
+      <showorder>1</showorder>
+    </menuitem>
+    <menuitem name ="crayfire.acp.user.add">
+      <type>item</type>
+      <parent>crayfire.acp.user</parent>
+      <showorder>2</showorder>
+      <permissions></permissions>
+      <page></page>
+    </menuitem>
+    <menuitem name ="crayfire.acp.user.list">
+      <type>item</type>
+      <parent>crayfire.acp.user</parent>
+      <showorder>3</showorder>
+      <permissions></permissions>
+      <page></page>
+    </menuitem>
+    <menuitem name ="crayfire.acp.user.title">
+      <type>header</type>
+      <parent>crayfire.acp.user</parent>
+      <showorder>4</showorder>
+    </menuitem>
+    <menuitem name ="crayfire.acp.user.group.add">
+      <type>item</type>
+      <parent>crayfire.acp.user</parent>
+      <showorder>5</showorder>
+      <permissions></permissions>
+      <page></page>
+    </menuitem>
+    <menuitem name ="crayfire.acp.user.group.list">
+      <type>item</type>
+      <parent>crayfire.acp.user</parent>
+      <showorder>6</showorder>
+      <permissions></permissions>
+      <page></page>
+    </menuitem>
+    <!-- Second Level User Item - Stop-->
+  </import>
+</data>
