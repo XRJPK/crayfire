@@ -72,5 +72,17 @@ namespace crayfireGUIsample
 
 
         }
+
+        private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Benutzer Button
+            if (MenuUserPanel.Visibility == Visibility.Collapsed)
+            {
+                MenuUserPanel.Visibility = Visibility.Visible;
+                activeMenuItem = a.Name;
+            }
+            else
+                MenuUserPanel.Visibility = Visibility.Collapsed;
+        }
     }
 }
