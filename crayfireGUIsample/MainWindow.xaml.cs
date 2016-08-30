@@ -13,8 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using crayfireGUIsample;
+using crayfireGUIsample.lib;
 
-namespace crayfireGUIsample
+namespace crayfireGUIsample 
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -83,6 +84,14 @@ namespace crayfireGUIsample
             }
             else
                 MenuUserPanel.Visibility = Visibility.Collapsed;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            log4.Info("GetCrayfireMenu");
+            var Dbase = new Database();
+            var Test = Dbase.GetCrayfireMenu();
+            MessageBox.Show(Test.Count.ToString() + Test[1].icon );          
         }
     }
 }
