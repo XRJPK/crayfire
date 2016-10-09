@@ -1,0 +1,126 @@
+﻿<Page x:Class="crayfireGUIsample.page.residual"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:crayfireGUIsample.page"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d"
+      Title="residual" VerticalAlignment="Top" Height="816" Background="White">
+
+    <Grid VerticalAlignment="Top">
+        <StackPanel Orientation="Vertical" Margin="10">
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18">Restwert erstellen</TextBlock>
+            <Label HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#FFDDDDDD">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="List" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Width="12" Height="12" Margin="2"/>
+                        <TextBlock Margin="2">Restwerte auflisten</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Label>
+            <TabControl BorderBrush="#FFACACAC" Background="White">
+                <TabItem Header="1. Auftragsdaten /Fahrzeug">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Width="250">
+                                <Label>Vorgangsnummer:</Label>
+                                <TextBox></TextBox>
+                                <Label>Schadennummer:</Label>
+                                <TextBox></TextBox>
+                                <Label>Kennzeichen:</Label>
+                                <TextBox></TextBox>
+                                <Label>Fahrgestellnummer:</Label>
+                                <TextBox></TextBox>
+                                <Label>Fahrzeugart:</Label>
+                                <TextBox></TextBox>
+                                <Label>Hersteller:</Label>
+                                <TextBox></TextBox>
+                                <Label>Modell:</Label>
+                                <TextBox></TextBox>
+                                <Label>Aufbau:</Label>
+                                <TextBox></TextBox>
+                                <Label>Farbe:</Label>
+                                <TextBox></TextBox>
+                                <Label>Türen:</Label>
+                                <TextBox></TextBox>
+                                <Label>Vorbesitzer:</Label>
+                                <TextBox></TextBox>
+                                <Label>Hubraum in ccm:</Label>
+                                <TextBox></TextBox>
+                                <Label>Leistung in kW:</Label>
+                                <TextBox></TextBox>
+                                <Label>Laufleistung in km:</Label>
+                                <TextBox></TextBox>
+                                <Label>Motorart:</Label>
+                                <TextBox></TextBox>
+                                <Label>Erstzulassung:</Label>
+                                <TextBox></TextBox>
+                                <Label>Hauptuntersuchung:</Label>
+                                <TextBox></TextBox>
+                            </StackPanel>
+                            <StackPanel Width="20"></StackPanel>
+                            <StackPanel Orientation="Vertical" Width="250">
+                                <Label>Buchungsdauer:</Label>
+                                <TextBox></TextBox>
+                                <Label>Lokales Angebot:</Label>
+                                <TextBox></TextBox>
+                                <Label>Mehrwertsteuer ausweisbar:</Label>
+                                <TextBox></TextBox>
+                                <Label>Fahrzeugbrief vorhanden:</Label>
+                                <TextBox></TextBox>
+                                <Label>Zulassungsland:</Label>
+                                <TextBox></TextBox>
+                                <Label>Standort (Land /Plz):</Label>
+                                <TextBox></TextBox>
+                                <Label>Schadentag:</Label>
+                                <TextBox></TextBox>
+                                <Label>Ansprechpartner:</Label>
+                                <TextBox></TextBox>
+                                <Label>Wiederbeschaffungswert (brutto):</Label>
+                                <TextBox></TextBox>
+                                <Label>Reparaturkosten (netto):</Label>
+                                <TextBox></TextBox>
+                                <Label>Arbeitslon (netto):</Label>
+                                <TextBox></TextBox>
+                                <Label>Lackkosten (netto):</Label>
+                                <TextBox></TextBox>
+                                <Label>Materialkosten (netto):</Label>
+                                <TextBox></TextBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="2. Ausstattung / Beschreibeung">
+                    <Grid>
+                        <StackPanel Orientation="Vertical">
+                            <Label>Kurze Fahrzeugbeschreibung</Label>
+                            <TextBox></TextBox>
+                            <Label>Ausstattung / Zubehör:</Label>
+                            <TextBox></TextBox>
+                            <Label>Zusatzangaben:</Label>
+                            <TextBox></TextBox>
+                            <Label>Kurze Schadenbeschreibung:</Label>
+                            <TextBox></TextBox>
+                            <Label>Anstossbereich (VR/VL/HL/HR/VM/HM/Dach/Boden):</Label>
+                            <TextBox></TextBox>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="3. Reparaturkalkulation">
+                    <Grid>
+                        <StackPanel Orientation="Vertical">
+                            <TextBox></TextBox>
+                            <Button></Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="4. Digitalfotos">
+                    <Grid></Grid>
+                </TabItem>
+            </TabControl>
+
+        </StackPanel>
+
+    </Grid>
+</Page>
