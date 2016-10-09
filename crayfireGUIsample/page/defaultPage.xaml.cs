@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace crayfireGUIsample.page
 {
     /// <summary>
-    /// Interaction logic for overview.xaml
+    /// Interaction logic for defaultPage.xaml
     /// </summary>
-    public partial class overview : Page
+    public partial class defaultPage : Page
     {
-        public overview()
+        public defaultPage()
         {
             InitializeComponent();
         }

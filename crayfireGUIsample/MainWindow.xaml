@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:crayfireGUIsample"
         xmlns:WpfTools="clr-namespace:WpfTools;assembly=WpfTools"
+                xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="767.558" Width="1020.349" MinHeight="700" MinWidth="1000">
@@ -88,21 +89,21 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border>
-                                <Border.Style>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#FF22313F"/>
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Border.Style>
-                                <Grid Background="Transparent">
-                                    <ContentPresenter/>
-                                </Grid>
-                            </Border>
-                        </ControlTemplate>
+                            <Border.Style>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FF22313F"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Grid Background="Transparent">
+                                <ContentPresenter/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
@@ -124,103 +125,25 @@
             <Label DockPanel.Dock="Bottom" Height="25" Background="#FF2C3E50" BorderThickness="0">Status: Database connection faild</Label>
             <ScrollViewer VerticalScrollBarVisibility="Hidden">
                 <StackPanel DockPanel.Dock="Left" Width="150" Background="#FF2C3E50" Margin="-0.2">
-                    <Button PreviewMouseDown="selectMenuItem" x:Name="test" Style="{StaticResource menuMainButton}" Width="Auto" Height="110px" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" Panel.ZIndex="10">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="32" Height="32" Source="{WpfTools:ImageFromFont Text=&#xf1b9;, FontFamily=/crayfireGUIsample;component/Resources/#FontAwesome, Brush=White}"/>
-                            <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20">Gutachten</TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Button PreviewMouseDown="selectMenuItem" x:Name="test2"  Style="{StaticResource menuMainButton}" Width="Auto" Height="110px" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="32" Height="32" Source="{WpfTools:ImageFromFont Text=&#xf1ec;, FontFamily=/crayfireGUIsample;component/Resources/#FontAwesome, Brush=White}"/>
-                            <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20">Buchhaltung</TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Button Style="{StaticResource menuMainButton}" Width="Auto" Height="110px" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="32" Height="32" Source="{WpfTools:ImageFromFont Text=&#xf1b3;, FontFamily=/crayfireGUIsample;component/Resources/#FontAwesome, Brush=White}"/>
-                            <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20">Tools</TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Button Style="{StaticResource menuMainButton}" Width="Auto" Height="110px" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" PreviewMouseDown="Button_PreviewMouseDown" >
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="32" Height="32" Source="{WpfTools:ImageFromFont Text=&#xf0c0;, FontFamily=/crayfireGUIsample;component/Resources/#FontAwesome, Brush=White}"/>
-                            <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20">Benutzer</TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Button Style="{StaticResource menuMainButton}" Width="Auto" Height="110px" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="32" Height="32" Source="{WpfTools:ImageFromFont Text=&#xf085;, FontFamily=/crayfireGUIsample;component/Resources/#FontAwesome, Brush=White}"/>
-                            <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20">Verwaltung</TextBlock>
-                        </StackPanel>
-                    </Button>
-                </StackPanel >
+                    <ItemsControl x:Name="pageMenu">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Tag="{Binding menuItem}" PreviewMouseDown="selectMenuItem" Style="{StaticResource menuMainButton}" Width="Auto" Height="110px" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <fa:ImageAwesome Icon="{Binding icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Width="32" Height="32" />
+                                        <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20" Text="{Binding menuItemLink}"/>
+                                    </StackPanel>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
             </ScrollViewer>
-            <StackPanel Name="subMenuPanel" Visibility="Collapsed" DockPanel.Dock="Left" Width="195" Background="#FF22313F" Margin="-0.2" Panel.ZIndex="9999">
-                <Label Style="{StaticResource subMenuHeader}">CMS</Label>
-                <StackPanel Style="{StaticResource subMenuItem}">
-                    <Label>Seiten</Label>
-                    <TextBlock>+</TextBlock>
-                </StackPanel>
-                <StackPanel Style="{StaticResource subMenuItem}">
-                    <Label>Menüs</Label>
-                    <TextBlock>+</TextBlock>
-                </StackPanel>
-                <StackPanel Style="{StaticResource subMenuItem}">
-                    <Label>Boxen</Label>
-                    <TextBlock >+</TextBlock>
-                </StackPanel>
-                <StackPanel Style="{StaticResource subMenuItem}">
-                    <Label>Medien</Label>
-                    <TextBlock>+</TextBlock>
-                </StackPanel>
-                <Label Style="{StaticResource subMenuHeader}">Artikel</Label>
-                <StackPanel Style="{StaticResource subMenuItem}">
-                    <Label>Artikel</Label>
-                    <TextBlock>+</TextBlock>
-                </StackPanel>
-                <StackPanel Style="{StaticResource subMenuItem}">
-                    <Label>Kategorien</Label>
-                    <TextBlock>+</TextBlock>
-                </StackPanel>
-                <StackPanel Style="{StaticResource subMenuItem}">
-                    <Label>Medien</Label>
-                    <TextBlock>+</TextBlock>
-                </StackPanel>
-                <Label Style="{StaticResource subMenuHeader}">Labels</Label>
-                <StackPanel Style="{StaticResource subMenuItem}">
-                    <Label x:Name="a">Labels</Label>
-                    <TextBlock>+</TextBlock>
-                </StackPanel>
-                <StackPanel Style="{StaticResource subMenuItem}">
-                    <Label>Labelgruppen</Label>
-                    <TextBlock>+</TextBlock>
-                </StackPanel>
-                <StackPanel Style="{StaticResource subMenuItem}">
-                    <Label>Mediengruppen</Label>
-                    <TextBlock>+</TextBlock>
-                </StackPanel>
+            <StackPanel Name="subMenuPanel" Visibility="Visible" DockPanel.Dock="Left" Width="195" Background="#FF22313F" Margin="-0.2" Panel.ZIndex="9999" HorizontalAlignment="Left">
             </StackPanel>
-            <DockPanel Name="MenuUserPanel" Visibility="Visible" DockPanel.Dock="Left"  HorizontalAlignment="Stretch" Margin=" 10,10,10,10" Background="#AA22313F" Panel.ZIndex="1" >
-                <StackPanel Orientation="Vertical">
-                    <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="18">Benutzer hinzufügen</TextBlock>
-
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource workplaceStack}" >
-                        <Label>Vorname</Label>
-                        <TextBox></TextBox>
-                        <Label>Nachname</Label>
-                        <TextBox></TextBox>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource workplaceStack}">
-                        <Label >StackPanel2</Label>
-                        <TextBox></TextBox>
-                    </StackPanel>
-                   
-                    <Button Width="80" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,20" Style="{StaticResource workplaceButton}" Click="Button_Click" >
-                        <Image Width="32" Height="32" Source="{WpfTools:ImageFromFont Text=&#xf0c7;, FontFamily=/crayfireGUIsample;component/Resources/#FontAwesome, Brush=White}"/>
-                    </Button>
-                </StackPanel>
-            </DockPanel>
+            <ScrollViewer Grid.Row="1">
+                <Frame NavigationUIVisibility="Hidden" BorderThickness="0" x:Name="workplace" Content="" Source="page/defaultPage.xaml" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" VerticalAlignment="Top"/>
+            </ScrollViewer>
         </DockPanel>
     </Grid>
 </Window>

@@ -14,16 +14,18 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using crayfireGUIsample;
 using crayfireGUIsample.lib;
+using WpfTools;
+using FontAwesome.WPF;
 
-namespace crayfireGUIsample 
+
+namespace crayfireGUIsample
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool subMenuPanelShow =false;
-        private string activeMenuItem = "";
+
 
         // Initialize Log4Net 
         //
@@ -36,62 +38,138 @@ namespace crayfireGUIsample
         {
             log4.Info("It Works!");
             InitializeComponent();
+            InitializePageMenu();
+            //InitializePageSubMenu();
+        }
+
+
+
+        private void InitializePageMenu()
+        {
+            var Dbase = new Database();
+            var Test = Dbase.GetCrayfireMenu();
+            List<pageMenuItem> pageMenuItemList = new List<pageMenuItem>();
+
+            foreach (var a in Test)
+            {
+                if (a.parentMenuItem == "")
+                {
+                    pageMenuItemList.Add(new pageMenuItem() { menuItemID = a.menuItemID, menuItem = a.menuItem, icon = a.icon, menuItemLink = a.menuItemLink });
+                }
+            }
+            pageMenu.ItemsSource = pageMenuItemList;
         }
 
         private void selectMenuItem(object sender, MouseButtonEventArgs e)
         {
-            Button a = (Button)sender;//#FF1F2B36
-            if (subMenuPanelShow == true && a.Name == activeMenuItem)
-            {
-                subMenuPanel.Visibility = Visibility.Collapsed;
-                subMenuPanelShow = false;
-                activeMenuItem = a.Name;
-            }
-            else if (subMenuPanelShow == false && a.Name == activeMenuItem)
-            {
-                subMenuPanel.Visibility = Visibility.Visible;
-                subMenuPanelShow = true;
-                activeMenuItem = a.Name;
-
-            }
-            else if (subMenuPanelShow == false && a.Name != activeMenuItem)
-            {
-                subMenuPanel.Visibility = Visibility.Visible;
-                subMenuPanelShow = true;
-                activeMenuItem = a.Name;
-
-                //submenu Laden
-            }
-            else if (subMenuPanelShow == true && a.Name != activeMenuItem)
-            {
-                activeMenuItem = a.Name;
-
-                //submenu tauschen
-            }
-
-
-
-
+            Button a = (Button)sender;
+            //MessageBox.Show(a.Tag.ToString());
+            InitializePageSubMenu(a.Tag.ToString());
         }
 
-        private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        public ImageSource CreateGlyph(string text,
+                FontFamily fontFamily, FontStyle fontStyle, FontWeight fontWeight,
+                FontStretch fontStretch, Brush foreBrush)
         {
-            // Benutzer Button
-            if (MenuUserPanel.Visibility == Visibility.Collapsed)
+            if (fontFamily != null && !String.IsNullOrEmpty(text))
             {
-                MenuUserPanel.Visibility = Visibility.Visible;
-                activeMenuItem = a.Name;
+                Typeface typeface = new Typeface(fontFamily, fontStyle, fontWeight, fontStretch);
+                GlyphTypeface glyphTypeface;
+                if (!typeface.TryGetGlyphTypeface(out glyphTypeface))
+                    throw new InvalidOperationException("No glyphtypeface found");
+
+                ushort[] glyphIndexes = new ushort[text.Length];
+                double[] advanceWidths = new double[text.Length];
+                for (int n = 0; n < text.Length; n++)
+                {
+                    ushort glyphIndex = glyphTypeface.CharacterToGlyphMap[text[n]];
+                    glyphIndexes[n] = glyphIndex;
+                    double width = glyphTypeface.AdvanceWidths[glyphIndex] * 1.0;
+                    advanceWidths[n] = width;
+                }
+
+                GlyphRun gr = new GlyphRun(glyphTypeface, 0, false, 1.0, glyphIndexes,
+                                            new Point(0, 0), advanceWidths,
+                                            null, null, null, null, null, null);
+                GlyphRunDrawing glyphRunDrawing = new GlyphRunDrawing(foreBrush, gr);
+                return new DrawingImage(glyphRunDrawing);
+
+            }
+            return null;
+        }
+
+        private void navigatePage(object sender, MouseButtonEventArgs e)
+        {
+            Label a = (Label)sender;
+            if (a.Tag.ToString() == "")
+            {
+                MessageBox.Show("no page found.");
             }
             else
-                MenuUserPanel.Visibility = Visibility.Collapsed;
+            {
+                workplace.Navigate(new System.Uri("/page/" + a.Tag.ToString() + ".xaml", UriKind.RelativeOrAbsolute));
+                //workplace.Navigate("/page/" + a.Tag.ToString() + ".xaml");
+            }
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void InitializePageSubMenu(string menuItem)
         {
-            log4.Info("GetCrayfireMenu");
+            subMenuPanel.Children.Clear();
             var Dbase = new Database();
             var Test = Dbase.GetCrayfireMenu();
-            MessageBox.Show(Test.Count.ToString() + Test[1].icon );          
+            foreach (var a in Test)
+            {
+                if (a.parentMenuItem == menuItem)
+                {
+
+                    Label m = new Label
+                    {
+                        Style = this.FindResource("subMenuHeader") as Style,
+                        Content = a.menuItemLink
+                    };
+                    subMenuPanel.Children.Add(m);
+                    foreach (var b in Test)
+                    {
+                        if (a.menuItem == b.parentMenuItem)
+                        {
+
+                            Label m2 = new Label
+                            {
+                                Content = b.menuItemLink,
+                                //HorizontalAlignment = HorizontalAlignment.Left,
+                                //Background = Brushes.Transparent,
+                                //BorderBrush = Brushes.Transparent,
+                                //Foreground = Brushes.White,
+                                Tag = b.menuItemController
+                            };
+                            m2.MouseLeftButtonUp += new MouseButtonEventHandler(navigatePage);
+
+                            StackPanel sp2 = new StackPanel
+                            {
+                                Style = this.FindResource("subMenuItem") as Style,
+                            };
+                            sp2.Children.Add(m2);
+                            subMenuPanel.Children.Add(sp2);
+                        }
+                    }
+                }
+            }
         }
+
+        private void workplace_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
+
+    }
+
+    public class pageMenuItem
+    {
+
+        public int menuItemID { get; set; }
+        public string menuItem { get; set; }
+        public string icon { get; set; }
+        public string menuItemLink { get; set; }
     }
 }
