@@ -115,7 +115,7 @@
             </DockPanel.Background>
             <StackPanel DockPanel.Dock="Top" Height="50" Background="#FF2C3E50" Orientation="Horizontal">
                 <Label Width="150" Height="50px" Background="#FF34495E" VerticalAlignment="Center">
-                    <Image Width="140" Height="40" Source="{WpfTools:ImageFromFont Text=&#xf2b0;, FontFamily=/crayfireGUIsample;component/Resources/#FontAwesome, Brush=White}"/>
+                    <Image Width="140" Height="40" Source="Resources/logo_ohne_text_QWv_icon.ico"/>
                 </Label>
                 <Label Width="150" Height="50px" HorizontalAlignment="Left" Background="#FF1F2B36"/>
                 <Label Width="200" Height="50px" Background="#FF273644">
