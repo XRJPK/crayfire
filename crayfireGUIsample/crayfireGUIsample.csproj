@@ -174,9 +174,6 @@
     <Resource Include="image\app.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="menu.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="pageMenu.xml" />
   </ItemGroup>
   <ItemGroup>
