@@ -21,6 +21,16 @@ namespace crayfireGUIsample.lib
             public DbSet<wcf1_user> wcf1_user { get; set; }
             public DbSet<wcf1_template> wcf1_template { get; set; }
             public DbSet<crayfire_menu_item> crayfire_menu_item { get; set; }
+            //Tables of Version 0.0.3
+            public DbSet<crayfire_address> Adress { get; set; }
+            public DbSet<crayfire_address_contact> AdressContact { get; set; }
+            public DbSet<crayfire_address_group> AdressGroup { get; set; }
+            public DbSet<crayfire_residual> Residual { get; set; }
+            public DbSet<crayfire_residual_calculation> ResidualCalculation { get; set; }
+            public DbSet<crayfire_residual_config> ResidualConfig { get; set; }
+            public DbSet<crayfire_residual_data> ResidualData { get; set; }
+            public DbSet<crayfire_residual_images> ResidualImages { get; set; }
+            public DbSet<crayfire_vehicle> Vehicle { get; set; }
         }
 
         static void InitializeDatabase()

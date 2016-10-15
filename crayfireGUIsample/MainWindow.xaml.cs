@@ -36,9 +36,10 @@ namespace crayfireGUIsample
 
         public MainWindow()
         {
-            log4.Info("It Works!");
+            log4.Info("Crayfire initalized - User: " + System.Security.Principal.WindowsIdentity.GetCurrent().Name);
             InitializeComponent();
             InitializePageMenu();
+            InitializeDockPanel();
             //InitializePageSubMenu();
         }
 
@@ -162,6 +163,11 @@ namespace crayfireGUIsample
 
         }
 
+        private void InitializeDockPanel ()
+        {
+            string Username = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            DockPanel_Bottom.Content += " " + Username;
+        }
     }
 
     public class pageMenuItem
