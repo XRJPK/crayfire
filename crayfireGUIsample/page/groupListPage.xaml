@@ -20,10 +20,10 @@
                     </StackPanel>
                 </Button>
             </Label>
-            <DataGrid AlternatingRowBackground="#FFC4B0B0" Height="400" AutoGenerateColumns="False" Name="grdEmployee">
+            <DataGrid AlternatingRowBackground="LightGray" Height="400" AutoGenerateColumns="False" x:Name="adressGroupGrid">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding FirstName}" Width="20" Header="ID"/>
-                    <DataGridTextColumn Binding="{Binding LastName}" Width="*" Header="Name"/>
+                    <DataGridTextColumn Binding="{Binding groupID}" Width="40" Header="ID"/>
+                    <DataGridTextColumn Binding="{Binding groupName}" Width="*" Header="Name"/>
                     <DataGridTextColumn Binding="{Binding Salary}" Width="100" Header="Mitglieder"/>
                 </DataGrid.Columns>
             </DataGrid>

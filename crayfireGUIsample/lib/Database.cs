@@ -64,7 +64,7 @@ namespace crayfireGUIsample.lib
                 }
             }
         }
-        public List<crayfire_menu_item> GetCrayfireMenu ()
+        public List<crayfire_menu_item> GetCrayfireMenu()
         {
             using (var DatabaseContext = new db_Entities())
             {
@@ -85,5 +85,28 @@ namespace crayfireGUIsample.lib
                 return CrayfireMenu;
             }
         }
+
+        public List<crayfire_address_group> getGroupList()
+        {
+            using (var DatabaseContext = new db_Entities())
+            {
+                List<crayfire_address_group> crayfireAddressGroup = new List<crayfire_address_group>();
+
+                try
+                {
+                    InitializeDatabase();
+                    crayfireAddressGroup = DatabaseContext.AdressGroup.ToList();
+                    ShutdownDatabase();
+                }
+                catch (Exception Ex)
+                {
+                    DatabaseContext.Database.Connection.Close();
+                    log4.Error(Ex);
+                }
+
+                return crayfireAddressGroup;
+            }
+        }
+
     }
 }
