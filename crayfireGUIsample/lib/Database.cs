@@ -9,6 +9,9 @@ using Crayfire.Console.DatabaseLibary;
 
 namespace crayfireGUIsample.lib
 {
+    /// <summary>
+    /// Haupt Databankklasse, stellt alle Basis Datebank Objekte bereit.
+    /// </summary>
     class Database
     {
         private static readonly log4net.ILog log4 =
@@ -46,6 +49,7 @@ namespace crayfireGUIsample.lib
                 {
                     DatabaseContext.Database.Connection.Close();
                     log4.Error(Ex);
+                    throw;
                 }
             }
         }
@@ -61,6 +65,7 @@ namespace crayfireGUIsample.lib
                 {
                     DatabaseContext.Database.Connection.Close();
                     log4.Error(Ex);
+                    throw;
                 }
             }
         }
@@ -80,12 +85,40 @@ namespace crayfireGUIsample.lib
                 {
                     DatabaseContext.Database.Connection.Close();
                     log4.Error(Ex);
+                    throw;
                 }
 
                 return CrayfireMenu;
             }
         }
 
+        /// <summary>
+        /// Used to execute a single SQL query for entity crayfire_menu_item
+        /// </summary>
+        /// <returns>List from type of own entity</returns>
+        public List<crayfire_menu_item> GetCrayfireMenu(string command)
+        {
+            using (var DatabaseContext = new db_Entities())
+            {
+                List<crayfire_menu_item> CrayfireMenu = new List<crayfire_menu_item>();
+                try
+                {
+                    CrayfireMenu = DatabaseContext.crayfire_menu_item.SqlQuery(command).ToList();
+                }
+                catch (Exception Ex )
+                {
+                    DatabaseContext.Database.Connection.Close();
+                    log4.Error(Ex);
+                    throw;
+                }
+                return CrayfireMenu;
+            }
+        }
+
+        /// <summary>
+        /// Get the whole Table GroupList and stores them in a List of its own type 
+        /// </summary>
+        /// <returns>List from type of own entity</returns>
         public List<crayfire_address_group> getGroupList()
         {
             using (var DatabaseContext = new db_Entities())
@@ -102,11 +135,32 @@ namespace crayfireGUIsample.lib
                 {
                     DatabaseContext.Database.Connection.Close();
                     log4.Error(Ex);
+                    throw;
                 }
 
                 return crayfireAddressGroup;
             }
         }
 
+        public List<crayfire_address> GetCrayfireAdress()
+        {
+            using (var DatabaseContext = new db_Entities())
+            {
+                List<crayfire_address> crayfireAdress = new List<crayfire_address>();
+                try
+                {
+                    InitializeDatabase();
+                    crayfireAdress = DatabaseContext.Adress.ToList();
+                    ShutdownDatabase();
+                }
+                catch (Exception Ex)
+                {
+                    DatabaseContext.Database.Connection.Close();
+                    log4.Error(Ex);
+                    throw;
+                }
+                return crayfireAdress;
+            }
+        }
     }
 }

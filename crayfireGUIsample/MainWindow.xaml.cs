@@ -67,7 +67,16 @@ namespace crayfireGUIsample
             //MessageBox.Show(a.Tag.ToString());
             InitializePageSubMenu(a.Tag.ToString());
         }
-
+        /// <summary>
+        /// Zeichnet eine Glyphe aus der FontAwesome Bibliothek mit entsprechenden Paramtern
+        /// </summary>
+        /// <param name="text">Bezeichnung der Glyphe</param>
+        /// <param name="fontFamily">Stellt eine Familie von verwandten Schriftarten dar.</param>
+        /// <param name="fontStyle">Definiert eine Struktur, die das Format einer Schriftart als normal, kursiv oder schräg darstellt.</param>
+        /// <param name="fontWeight">Verweist auf die Dichte einer Schriftart, d. h. darauf, wie fein oder breit die Striche sind</param>
+        /// <param name="fontStretch">Beschreibt den Grad, um den eine Schriftart in Bezug auf das normale Verhältnis gestreckt wurde</param>
+        /// <param name="foreBrush">Definiert Objekte, die zum Zeichnen grafischer Objekte verwendet werden.Von System.Windows.Media.Brush abgeleitete Klassen beschreiben, wie der Bereich gezeichnet wird.</param>
+        /// <returns></returns>
         public ImageSource CreateGlyph(string text,
                 FontFamily fontFamily, FontStyle fontStyle, FontWeight fontWeight,
                 FontStretch fontStretch, Brush foreBrush)
