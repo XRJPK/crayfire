@@ -167,14 +167,22 @@ namespace crayfireGUIsample.lib
             }
         }
 
-        public  List<char> GetCrayfireAdress(string command)
+        /// <summary>
+        /// Uses the tutorial of http://www.binaryintellect.net/articles/fbc96859-8a31-4735-baeb-7adcbc521b30.aspx 
+        /// </summary>
+        /// <param name="command">Includes the plain SQL Statement</param>
+        /// <returns>a List of special type for the explicite Statement</returns>
+        public List<AdressCount> GetCrayfireAdress(string command)
         {
+            List<AdressCount> data;
             using (var DatabaseContext = new db_Entities())
+               
             {
-                List<char> CrayfireAdress = new List<char>();
+                //List<char> CrayfireAdress = new List<char>();
                 try
                 {
-                    CrayfireAdress = DatabaseContext.Database.SqlQuery<string>(command).FirstOrDefault<string>().ToList();
+                    data = DatabaseContext.Database.SqlQuery<AdressCount>(command).ToList();
+                    //CrayfireAdress = DatabaseContext.Database.SqlQuery<string>(command).FirstOrDefault<string>().ToList();
                 }
                 catch (Exception Ex)
                 {
@@ -182,7 +190,7 @@ namespace crayfireGUIsample.lib
                     log4.Error(Ex);
                     throw;
                 }
-                return CrayfireAdress;
+                return data;
             }
         }
 
@@ -309,7 +317,12 @@ namespace crayfireGUIsample.lib
             propertyBuilder.SetGetMethod(getterMethod);
             propertyBuilder.SetSetMethod(setterMethod);
             }
-       
+       public class AdressCount
+        {
+            public int groupID { get; set; }
+            public string groupName { get; set; }
+            public int addressCount { get; set; }
+        }
     }
 
 
