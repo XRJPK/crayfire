@@ -1,0 +1,34 @@
+﻿<Page x:Class="crayfireGUIsample.page.groupAddForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:crayfireGUIsample.page"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d" d:DesignWidth="300"
+      Title="groupAddForm" Background="White" Height="314">
+
+    <Grid VerticalAlignment="Top">
+        <StackPanel Orientation="Vertical" Margin="10">
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18">Gruppen</TextBlock>
+            <Label HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#FFDDDDDD">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="List" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Width="12" Height="12" Margin="2"/>
+                        <TextBlock Margin="2">Gruppen auflisten</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Label>
+            <DataGrid AlternatingRowBackground="LightGray" Height="400" AutoGenerateColumns="False" x:Name="adressGroupGrid">
+            </DataGrid>
+            <Label HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#FFDDDDDD">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="List" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Width="12" Height="12" Margin="2"/>
+                        <TextBlock Margin="2">Gruppen auflisten</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Label>
+        </StackPanel>
+    </Grid>
+</Page>

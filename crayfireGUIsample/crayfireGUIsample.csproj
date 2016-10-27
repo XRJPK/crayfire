@@ -131,11 +131,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="page\contactAddForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="page\groupAddForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="page\groupListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="page\residualListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="page\vehicleListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="page\vehilceAddFormxaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,11 +167,23 @@
     <Compile Include="page\defaultPage.xaml.cs">
       <DependentUpon>defaultPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="page\contactAddForm.xaml.cs">
+      <DependentUpon>contactAddForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="page\groupAddForm.xaml.cs">
+      <DependentUpon>groupAddForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="page\groupListPage.xaml.cs">
       <DependentUpon>groupListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="page\residualListPage.xaml.cs">
       <DependentUpon>residualListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="page\vehicleListPage.xaml.cs">
+      <DependentUpon>vehicleListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="page\vehilceAddFormxaml.xaml.cs">
+      <DependentUpon>vehilceAddFormxaml.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

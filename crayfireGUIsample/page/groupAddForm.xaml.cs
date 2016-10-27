@@ -1,15 +1,21 @@
 ﻿using System.Windows.Controls;
+using crayfireGUIsample.lib;
+
 
 namespace crayfireGUIsample.page
 {
     /// <summary>
-    /// Interaction logic for contactListPage.xaml
+    /// Interaction logic for groupListPage.xaml
     /// </summary>
-    public partial class contactListPage : Page
+    public partial class groupAddForm : Page
     {
-        public contactListPage()
+        public groupAddForm()
         {
             InitializeComponent();
+
+
         }
     }
+
+
 }

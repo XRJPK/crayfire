@@ -13,19 +13,24 @@ namespace crayfireGUIsample.page
         public groupListPage()
         {
             InitializeComponent();
+
             //SELECT g.groupID, g.groupName, (SELECT count(*) FROM crayfire_address WHERE groupID = g.groupID) as addressCount FROM crayfire_address_group AS g  
             var Dbase = new Database();
-            var Test = Dbase.getGroupList();
+            //            var Test = Dbase.getGroupList();
+            var Test = Dbase.GetCrayfireMenu("SELECT g.groupID, g.groupName, (SELECT count(groupID) FROM crayfire_address WHERE groupID = g.groupID) as addressCount FROM crayfire_address_group AS g");
+               
             adressGroupGrid.ItemsSource = Test;
+
         }
     }
 
 
-    public class adressGroup
+    public class adressGroup 
     {
 
         public int groupID { get; set; }
         public string groupName { get; set; }
+        public int addressCount { get; set; }
 
     }
 
