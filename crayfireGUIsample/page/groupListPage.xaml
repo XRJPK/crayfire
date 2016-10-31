@@ -20,7 +20,7 @@
                     </StackPanel>
                 </Button>
             </Label>
-            <DataGrid AlternatingRowBackground="LightGray" Height="400" AutoGenerateColumns="False" x:Name="adressGroupGrid">
+            <DataGrid AlternatingRowBackground="LightGray" Height="400" AutoGenerateColumns="False" x:Name="adressGroupGrid" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding groupID}" Width="40" Header="ID"/>
                     <DataGridTextColumn Binding="{Binding groupName}" Width="*" Header="Name"/>
