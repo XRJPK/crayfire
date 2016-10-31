@@ -24,7 +24,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding groupID}" Width="40" Header="ID"/>
                     <DataGridTextColumn Binding="{Binding groupName}" Width="*" Header="Name"/>
-                    <DataGridTextColumn Binding="{Binding Salary}" Width="100" Header="Mitglieder"/>
+                    <DataGridTextColumn Binding="{Binding addressCount}" Width="100" Header="Mitglieder"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Label HorizontalAlignment="Right" VerticalAlignment="Top">
