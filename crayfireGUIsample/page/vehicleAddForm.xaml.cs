@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace crayfireGUIsample.page
 {
     /// <summary>
-    /// Interaction logic for vehilceAddFormxaml.xaml
+    /// Interaction logic for vehilceAddForm.xaml
     /// </summary>
-    public partial class vehilceAddFormxaml : Page
+    public partial class vehicleAddForm : Page
     {
-        public vehilceAddFormxaml()
+        public vehicleAddForm()
         {
             InitializeComponent();
         }

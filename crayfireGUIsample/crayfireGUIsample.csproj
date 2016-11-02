@@ -151,7 +151,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="page\vehilceAddFormxaml.xaml">
+    <Page Include="page\vehicleAddForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,8 +182,8 @@
     <Compile Include="page\vehicleListPage.xaml.cs">
       <DependentUpon>vehicleListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="page\vehilceAddFormxaml.xaml.cs">
-      <DependentUpon>vehilceAddFormxaml.xaml</DependentUpon>
+    <Compile Include="page\vehicleAddForm.xaml.cs">
+      <DependentUpon>vehicleAddForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
