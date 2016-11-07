@@ -30,10 +30,10 @@ namespace crayfireGUIsample
             InitializeComponent();
             InitializePageMenu();
             InitializeDockPanel();
-            initSesson();
+            initSession();
         }
         ~MainWindow() {}
-        public void initSesson(){
+        public void initSession(){
 
         }
 

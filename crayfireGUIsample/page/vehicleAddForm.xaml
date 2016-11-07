@@ -4,11 +4,74 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:crayfireGUIsample.page"
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-      Title="vehilceAddForm">
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d"
+      Title="vehilceAddForm" Background="White">
 
-    <Grid>
-        
+    <Grid VerticalAlignment="Top">
+        <StackPanel Orientation="Vertical" Margin="10">
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18"><Run Text="Fahrzeug hinzufügen"/></TextBlock>
+            <Label HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#FFDDDDDD" Height="30">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="List" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Width="18" Height="18" Margin="2"/>
+                        <TextBlock Margin="2" FontSize="18"><Run Text="Fahrzeuge auflisten"/></TextBlock>
+                    </StackPanel>
+                </Button>
+            </Label>
+
+            <TabControl VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Margin="0,0,28.6,0">
+                <TabItem Header="Allgemeine Daten" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FFE74C3C" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18">
+                    <Grid x:Name="adressGroupAddGrid" VerticalAlignment="Top" Height="315" Margin="0,0,26.8,0">
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Amtl. Kennzeichen" Margin="10,10,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16"/>
+                        <TextBox Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,10,0,0"/>
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Fahrzeugart" Margin="10,35,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="300" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,35,-29,0"/>
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Aufbau" Margin="10,60,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="300" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,60,-29,0"/>
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Hersteller" Margin="10,85,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="300" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,85,0,0"/>
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Modell / Typ" Margin="10,110,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="300" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,110,0,0"/>
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Schlüssel-Nr." Margin="10,135,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="300" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,135,0,0"/>
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Fz-Ident-Nr." Margin="10,160,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="300" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,160,0,0" RenderTransformOrigin="0.493,0.359"/>
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Erste Zulassung" Margin="10,185,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="300" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,185,0,0"/>
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Letzte Zulassung" Margin="10,210,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="300" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,210,0,0"/>
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Hubraum" Margin="10,237,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="100" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,237,0,0"/>
+                        <TextBlock Width="75" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Leistung" Margin="270,235,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="115" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,235,0,0"/>
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Tachostand" Margin="10,262,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="300" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,262,0,0"/>
+                        <TextBlock Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Gesamtlaufleistung" Margin="10,287,0,0" TextAlignment="Right" Foreground="#FF3B6DA9" FontSize="16" />
+                        <TextBox Width="300" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,287,0,0"/>
+                    </Grid>
+
+                </TabItem>
+                <TabItem Header="Erweiterte Daten" Foreground="#FFE74C3C" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18"/>
+            </TabControl>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Button Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Absenden" Foreground="White" Background="#FF2196F3" FontSize="18"/>
+            </Label>
+            <!--
+                Button "Absenden "Hover ADD
+                background-color: rgba(26, 119, 201, 1);
+                color: rgba(255, 255, 255, 1);
+                -->
+
+            <Label HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#FFDDDDDD">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="List" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Width="18" Height="18"  Margin="2"/>
+                        <TextBlock Margin="2" FontSize="18"><Run Text="Fahrzeuge auflisten"/></TextBlock>
+                    </StackPanel>
+                </Button>
+            </Label>
+        </StackPanel>
     </Grid>
+
 </Page>
