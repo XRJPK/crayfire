@@ -143,6 +143,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="page\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="page\residualListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +179,9 @@
     </Compile>
     <Compile Include="page\groupListPage.xaml.cs">
       <DependentUpon>groupListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="page\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="page\residualListPage.xaml.cs">
       <DependentUpon>residualListPage.xaml</DependentUpon>
