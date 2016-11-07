@@ -38,6 +38,9 @@ namespace crayfireGUIsample.lib
             public DbSet<crayfire_residual_images> ResidualImages { get; set; }
             public DbSet<crayfire_vehicle> Vehicle { get; set; }
             // public DbSet<IEnumerable> AdressQuery { get; set; }
+
+            // Try of generic DbSet
+            // public DbSet<Crayfire.Console.DatabaseLibary.Database> MySets { get; set; }
         }
 
         static void InitializeDatabase()
