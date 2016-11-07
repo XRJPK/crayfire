@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:crayfireGUIsample.page"
       xmlns:fa="http://schemas.fontawesome.io/icons/"
-      mc:Ignorable="d" d:DesignWidth="400"
+      mc:Ignorable="d" d:DesignWidth="600"
       Title="groupAddForm" Background="White">
 
     <Grid VerticalAlignment="Top">

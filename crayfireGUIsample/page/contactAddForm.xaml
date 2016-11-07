@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:crayfireGUIsample.page"
       xmlns:fa="http://schemas.fontawesome.io/icons/"
       mc:Ignorable="d"
-      Title="groupListPage" Background="White" Width="533.2">
+      Title="groupListPage" Background="White" Width="600">
 
     <Grid VerticalAlignment="Top" Margin="0,0,53.8,0">
         <StackPanel Orientation="Vertical" Margin="10,10,-23,9.6">
