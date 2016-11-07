@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:crayfireGUIsample.page"
       xmlns:fa="http://schemas.fontawesome.io/icons/"
-      mc:Ignorable="d" d:DesignWidth="300"
-      Title="groupAddForm" Background="White" Height="314">
+      mc:Ignorable="d" d:DesignWidth="400"
+      Title="groupAddForm" Background="White">
 
     <Grid VerticalAlignment="Top">
         <StackPanel Orientation="Vertical" Margin="10">
@@ -19,8 +19,19 @@
                     </StackPanel>
                 </Button>
             </Label>
-            <DataGrid AlternatingRowBackground="LightGray" Height="400" AutoGenerateColumns="False" x:Name="adressGroupGrid">
-            </DataGrid>
+            <Grid x:Name="adressGroupAddGrid" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <TextBlock Width="100" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Name" Margin="10,10,0,0"/>
+                <TextBox Width="300" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,30,0,0"></TextBox>
+                <TextBlock Width="200" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Beschreibung der Benutzergruppe" Margin="10,55,0,0"/>
+                <TextBox Width="300" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,82,-30,-0.286"></TextBox>
+                <!--
+                Button "Absenden "Hover ADD
+                background-color: rgba(26, 119, 201, 1);
+                color: rgba(255, 255, 255, 1);
+                -->
+                <Button Width="100" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,187,0,-25.286" Content="Absenden" Foreground="White" Background="#FF2196F3"></Button>
+                
+            </Grid>
             <Label HorizontalAlignment="Right" VerticalAlignment="Top">
                 <Button HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#FFDDDDDD">
                     <StackPanel Orientation="Horizontal">

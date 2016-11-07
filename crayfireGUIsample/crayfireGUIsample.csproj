@@ -127,6 +127,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="page\contactSearchForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="page\defaultPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,6 +167,9 @@
   <ItemGroup>
     <Compile Include="page\contactListPage.xaml.cs">
       <DependentUpon>contactListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="page\contactSearchForm.xaml.cs">
+      <DependentUpon>contactSearchForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="page\defaultPage.xaml.cs">
       <DependentUpon>defaultPage.xaml</DependentUpon>

@@ -8,7 +8,7 @@
                 xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="767.558" Width="1020.349" MinHeight="700" MinWidth="1000">
+        Title="MainWindow" Height="767.558" Width="1020.349" MinHeight="540" MinWidth="960">
     <Window.Resources>
         <Style x:Key="subMenuItem" TargetType="{x:Type StackPanel}">
             <Setter Property="Orientation" Value="Horizontal"/>
@@ -16,7 +16,7 @@
             <Style.Resources>
                 <Style TargetType="Label">
                     <Setter Property="HorizontalAlignment" Value="Right"/>
-                    <Setter Property="Width" Value="150"/>
+                    <Setter Property="Width" Value="250"/>
                     <Setter Property="Foreground" Value="#FFFFFFFF"/>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -43,9 +43,9 @@
         </Style>
         <Style x:Key="subMenuHeader" TargetType="{x:Type Label}">
             <Setter Property="HorizontalAlignment" Value="Right"/>
-            <Setter Property="Width" Value="175"/>
+            <Setter Property="Width" Value="275"/>
             <Setter Property="Foreground" Value="#FFADADAD"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="16"/>
             <Setter Property="Margin" Value="0,10,0,0"/>
         </Style>
         <Style x:Key="workplaceStack" TargetType="{x:Type StackPanel}">
@@ -139,7 +139,7 @@
                     </ItemsControl>
                 </StackPanel>
             </ScrollViewer>
-            <StackPanel Name="subMenuPanel" Visibility="Visible" DockPanel.Dock="Left" Width="195" Background="#FF22313F" Margin="-0.2" Panel.ZIndex="9999" HorizontalAlignment="Left">
+            <StackPanel Name="subMenuPanel" Visibility="Visible" DockPanel.Dock="Left" Width="300" Background="#FF22313F" Margin="-0.2" Panel.ZIndex="9999" HorizontalAlignment="Left">
             </StackPanel>
             <ScrollViewer Grid.Row="1">
                 <Frame NavigationUIVisibility="Hidden" BorderThickness="0" x:Name="workplace" Content="" Source="page/defaultPage.xaml" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" VerticalAlignment="Top"/>

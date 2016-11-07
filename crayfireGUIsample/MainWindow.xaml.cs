@@ -30,9 +30,12 @@ namespace crayfireGUIsample
             InitializeComponent();
             InitializePageMenu();
             InitializeDockPanel();
-            //InitializePageSubMenu();
+            initSesson();
         }
+        ~MainWindow() {}
+        public void initSesson(){
 
+        }
 
 
         private void InitializePageMenu()
@@ -54,61 +57,34 @@ namespace crayfireGUIsample
         private void selectMenuItem(object sender, MouseButtonEventArgs e)
         {
             Button a = (Button)sender;
-            //MessageBox.Show(a.Tag.ToString());
             InitializePageSubMenu(a.Tag.ToString());
         }
-        /// <summary>
-        /// Zeichnet eine Glyphe aus der FontAwesome Bibliothek mit entsprechenden Paramtern
-        /// </summary>
-        /// <param name="text">Bezeichnung der Glyphe</param>
-        /// <param name="fontFamily">Stellt eine Familie von verwandten Schriftarten dar.</param>
-        /// <param name="fontStyle">Definiert eine Struktur, die das Format einer Schriftart als normal, kursiv oder schräg darstellt.</param>
-        /// <param name="fontWeight">Verweist auf die Dichte einer Schriftart, d. h. darauf, wie fein oder breit die Striche sind</param>
-        /// <param name="fontStretch">Beschreibt den Grad, um den eine Schriftart in Bezug auf das normale Verhältnis gestreckt wurde</param>
-        /// <param name="foreBrush">Definiert Objekte, die zum Zeichnen grafischer Objekte verwendet werden.Von System.Windows.Media.Brush abgeleitete Klassen beschreiben, wie der Bereich gezeichnet wird.</param>
-        /// <returns></returns>
-        public ImageSource CreateGlyph(string text,
-                FontFamily fontFamily, FontStyle fontStyle, FontWeight fontWeight,
-                FontStretch fontStretch, Brush foreBrush)
-        {
-            if (fontFamily != null && !String.IsNullOrEmpty(text))
-            {
-                Typeface typeface = new Typeface(fontFamily, fontStyle, fontWeight, fontStretch);
-                GlyphTypeface glyphTypeface;
-                if (!typeface.TryGetGlyphTypeface(out glyphTypeface))
-                    throw new InvalidOperationException("No glyphtypeface found");
 
-                ushort[] glyphIndexes = new ushort[text.Length];
-                double[] advanceWidths = new double[text.Length];
-                for (int n = 0; n < text.Length; n++)
-                {
-                    ushort glyphIndex = glyphTypeface.CharacterToGlyphMap[text[n]];
-                    glyphIndexes[n] = glyphIndex;
-                    double width = glyphTypeface.AdvanceWidths[glyphIndex] * 1.0;
-                    advanceWidths[n] = width;
-                }
 
-                GlyphRun gr = new GlyphRun(glyphTypeface, 0, false, 1.0, glyphIndexes,
-                                            new Point(0, 0), advanceWidths,
-                                            null, null, null, null, null, null);
-                GlyphRunDrawing glyphRunDrawing = new GlyphRunDrawing(foreBrush, gr);
-                return new DrawingImage(glyphRunDrawing);
-
-            }
-            return null;
-        }
 
         private void navigatePage(object sender, MouseButtonEventArgs e)
         {
             Label a = (Label)sender;
             if (a.Tag.ToString() == "")
             {
-                MessageBox.Show("no page found.");
+                /*BUILD ERRORHANDLER*/
+                MessageBox.Show("no page found. CHECK DATABASE");
             }
             else
             {
-                workplace.Navigate(new System.Uri("/page/" + a.Tag.ToString() + ".xaml", UriKind.RelativeOrAbsolute));
-                //workplace.Navigate("/page/" + a.Tag.ToString() + ".xaml");
+                try
+                {
+                    Uri page = new System.Uri("/page/" + a.Tag.ToString() + ".xaml", UriKind.RelativeOrAbsolute);
+                    //TODO check uri
+                     workplace.Navigate(page);
+                }
+                catch(Exception Ex) {
+                    /*BUILD ERRORHANDLER*/
+                    MessageBox.Show("no page found. CHECK PROGRAM COMPONENT");
+                    log4.Error(Ex);
+                    throw;
+                }
+                
             }
 
         }
@@ -137,10 +113,6 @@ namespace crayfireGUIsample
                             Label m2 = new Label
                             {
                                 Content = b.menuItemLink,
-                                //HorizontalAlignment = HorizontalAlignment.Left,
-                                //Background = Brushes.Transparent,
-                                //BorderBrush = Brushes.Transparent,
-                                //Foreground = Brushes.White,
                                 Tag = b.menuItemController
                             };
                             m2.MouseLeftButtonUp += new MouseButtonEventHandler(navigatePage);
